@@ -122,6 +122,15 @@ project files, plans, data, or estimates were changed.
 - Run the smallest relevant verification after changes. Prove both bug and fix paths when applicable; if full verification is expensive or impossible, state what was checked and what remains unverified.
 - After each operation round, check the deliverable against the stated target and continue iterating when feasible if it still fails.
 
+## Implementation Simplicity And Error Handling
+
+- **避免推测性复杂度。** 默认采用满足当前需求的最简单正确实现。为缺乏现实依据的并发、安全或未来扩展场景增加明显复杂度前，说明具体故障、触发条件、证据及新增代码和维护成本，获得确认后再做；概率无法估计时明确说明。已明确要求的正确性与安全措施正常落实。
+- **入口校验，内部依约使用。** 外部数据进入可信流程时完成必要校验和规范化，内部按明确类型和值域使用，不逐层重复检查。仅在进入新的信任边界或数据变化使原校验失效时重新校验；类型声明不能代替运行时校验。
+- **按实际需要抽象。** 简单的一次性逻辑默认就地实现，不为假想复用增加函数、接口或框架。确有复用，或拆分能明显降低复杂度、改善可读性或独立测试时再提取；也不强求一个函数容纳复杂逻辑。
+- **有效处理错误，明确失败状态。** 仅为具体恢复、必要的错误转换或有用上下文捕获异常，否则向上传播；不逐层捕获后原样抛出，保留必要的资源清理。外部调用仅按预设的有界重试或降级策略恢复；未预设或恢复失败时，明确报错并保留必要诊断信息。不得吞异常、用默认空值掩盖失败继续执行，或将未处理的失败标为成功；需人工处理时，保留已完成内容、失败位置和接续方式。
+
+**适用范围：**上述规则约束代码组织与错误处理，不削弱研究授权、实证设计、文件保护及数据变换后的样本、键、标签和结果核验要求。
+
 ## Code, File, And Data Safety
 
 - Treat worktrees as dirty. Do not overwrite or revert existing edits, original source data, raw inputs, or user-provided original code unless explicitly requested.
