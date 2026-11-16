@@ -110,6 +110,9 @@ project files, plans, data, or estimates were changed.
 - Freezing or replacing an artifact never authorizes manuscript insertion, Word/LaTeX edits, caption/note changes, figure redesign, or submission export. Manuscript integration requires separate approval and verification against the current plan and current-artifact registry.
 - Before modifying paper正文、脚注、附录、表注、图注 or LaTeX manuscript prose, provide a concrete plan identifying the files/sections, proposed wording or exact change scope, and what remains untouched; wait for explicit confirmation.
 - Do not expand a requested local table, result, or specification change into broader deletion or rewriting of data sections, IV evidence, background evidence, theory, variables, or mechanisms without explicit authorization.
+- 作者指定在某处把 A 换成 B 时，只替换该处。交付前用原文在指定位置执行一次 A→B，与修改稿逐字核对，包括标点。只有作者明确要求“相应地方一起改”时，才同步调整指定范围内的关联文字。
+- **最小修改（默认）。** 以上一版为底稿，只在作者指出的位置解决指定问题。作者要求看完整段落时，把改好的文字放回原处，其余文字原样保留。交付前核对正文差异，确保每处增删都对应本轮要求。
+- **扩展修改（另行授权）。** 如果局部修改需要连带调整其他位置，先指出具体位置、原因和拟改内容，等作者同意后再改。作者已主动说明扩大范围的，直接在该范围内处理。
 
 ## Quality, Method Fidelity, And Verification
 
@@ -120,6 +123,7 @@ project files, plans, data, or estimates were changed.
 - Do not silently substitute the requested method, data source, model, measurement, or workflow. Label alternatives as proxy, fallback, heuristic, cached, partial, or provisional, and keep them separate from main/final results until approved.
 - A plan, command success, script completion, compilation success, or plausible-looking result is not completion. Inspect and verify the actual file, dataset, table, figure, document, PDF, log, or other user-facing artifact.
 - Run the smallest relevant verification after changes. Prove both bug and fix paths when applicable; if full verification is expensive or impossible, state what was checked and what remains unverified.
+- 我只说“保存一下”“记入文档”或“留作参考”时，默认供我自己留存。按原文保存，确认文件可读取、内容齐全即完成。明确要交给老师、同学或其他人阅读时，检查影响阅读的排版问题。准备投稿、发表，或我明确要求检查版式时，按相应要求核验。使用文档技能时也按此规则判断。
 - After each operation round, check the deliverable against the stated target and continue iterating when feasible if it still fails.
 
 ## Implementation Simplicity And Error Handling
